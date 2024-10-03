@@ -20,12 +20,13 @@
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  background-color: #007566;
-  
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s;
 }
 
 .center-button:hover {
- 
+  background-color: #0056b3;
 }
 
 /* Adicione uma classe para o componente app-card-produto */
@@ -44,7 +45,4 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
-}
-.primeira {
-  display: flex;
 }

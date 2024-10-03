@@ -1,5 +1,6 @@
 
-import { NgModule, Component } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CadastrarMoradoresComponent } from './components/cadastrar-moradores/cadastrar-moradores.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlojamentosComponent } from './components/alojamentos/alojamentos.component';
+
 // PIPES: https://angular.io/guide/pipes
 
 import { LOCALE_ID } from '@angular/core';
@@ -25,9 +27,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
-
-
 
 
 
