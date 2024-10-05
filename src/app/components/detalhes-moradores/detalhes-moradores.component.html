@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="morador-image.jpg" alt="Morador Image">
+      <h2>Informações do Morador</h2>
+      <ul>
+        <li>Nome Completo: {{ morador.nome }}</li>
+        <li>Data de Nascimento: {{ morador.dataNascimento }}</li>
+        <li>Idade: {{ morador.idade }}</li>
+        <li>CPF: {{ morador.cpf }}</li>
+        <li>RG: {{ morador.rg }}</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Status</h2>
+      <p>Ativo/Inativo: {{ morador.status }}</p>
+      <h2>Informações Adicionais</h2>
+      <ul>
+        <li>Nacionalidade: {{ morador.nacionalidade }}</li>
+        <li>Sexo: {{ morador.sexo }}</li>
+        <li>Albergue/Fila de Espera: {{ morador.albergue }}</li>
+        <li>Observação: {{ morador.observacao }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

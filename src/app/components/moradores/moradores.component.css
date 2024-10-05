@@ -1,10 +1,10 @@
-.alojamentos {
+.container {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 table {
@@ -22,25 +22,10 @@ th {
   background-color: #f0f0f0;
 }
 
-.detalhes-alojamento {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.detalhes-alojamento h2 {
-  margin-top: 0;
-}
-
-.detalhes-alojamento p {
-  margin-bottom: 10px;
-}
 button {
   background-color: #4CAF50;
   color: #fff;
-  padding: 11px 5px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;

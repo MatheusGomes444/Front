@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Moradores</h1>
+  <table>
+    <tr *ngFor="let morador of moradores">
+      <td>{{ morador.cpf }}</td>
+      <td>{{ morador.nome }}</td>
+      <td>{{ morador.albergue }}</td>
+      <td><button (click)="verDetalhes(morador)" routerLink="/detalhesmoradores">Detalhes</button></td>
+    </tr>
+  </table>
+</div>

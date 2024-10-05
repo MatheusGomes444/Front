@@ -1,7 +1,5 @@
 .navbar {
-  background-color: rgb(14, 91, 85);
-
-
+  background-color: rgb(0, 117, 102);
 }
 .navbarbrand{
   color: aliceblue;
@@ -23,9 +21,6 @@
   transition: 1s;
 }
 
-.input[type = "text"]:hover {
-  width: 240px;
-}
 
 .input[type = "text"]:focus {
   width: 280px;
@@ -34,6 +29,9 @@
 .faixa{
   background-color: rgb(142, 221, 193);
 border: 1px;
-width: 780rem;
+width: 130rem;
 height: 50px;
+ }
+ .material-icons{
+  font-size: 50px;
  }

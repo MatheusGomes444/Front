@@ -1,7 +1,28 @@
-<!-- alojamentos.component.html -->
-<div>
-  <h1>Alojamentos</h1>
-  <ul>
-    <h1>dfss</h1>
-  </ul>
+<div class="alojamentos">
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>Número de Moradores</th>
+      <th>Localização</th>
+      <th>Descrição</th>
+      <th>Descrição</th>
+    </tr>
+    <tr *ngFor="let alojamento of alojamentos">
+      <td>{{ alojamento.nome }}</td>
+      <td>{{ alojamento.numeroMoradores }}</td>
+      <td>{{ alojamento.localizacao }}</td>
+      <td>{{ alojamento.descricao }}</td>
+      <td>
+        <button (click)="verDetalhes(alojamento)">Ver detalhes</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="detalhes-alojamento" *ngIf="detalhesAlojamento">
+  <h2>Detalhes do alojamento</h2>
+  <p>Nome: {{ detalhesAlojamento.nome }}</p>
+  <p>Número de moradores: {{ detalhesAlojamento.numeroMoradores }}</p>
+  <p>Localização: {{ detalhesAlojamento.localizacao }}</p>
+  <p>Descrição: {{ detalhesAlojamento.descricao }}</p>
 </div>
