@@ -1,11 +1,17 @@
+<h1 style="padding-left: 2em;padding-top: 3rem;">Moradores</h1>
 <div class="container">
-  <h1>Moradores</h1>
-  <table>
-    <tr *ngFor="let morador of moradores">
-      <td>{{ morador.cpf }}</td>
-      <td>{{ morador.nome }}</td>
-      <td>{{ morador.albergue }}</td>
-      <td><button (click)="verDetalhes(morador)" routerLink="/detalhesmoradores">Detalhes</button></td>
-    </tr>
-  </table>
-</div>
+  
+  
+    <div *ngFor="let morador of moradores">
+      <td style="height: 19px; width: 900px; white-space: 15;">
+       <div style="display: flex;"> 
+        <div style="padding-left: 15px;">{{ morador.cpf }}</div>
+       <div style="padding-left: 15px;">{{ morador.nome }}</div>
+        <div style="padding-left: 15px;">{{ morador.albergue }}</div>
+       
+        <div style="padding-left: 15px;"><button (click)="verDetalhes(morador)" routerLink="/detalhesmoradores">Detalhes</button></div>
+       
+      </div>
+      </td>
+      </div>
+  </div>

@@ -1,26 +1,46 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
+      <h1>Detalhes Morador</h1>
+      <div class="moradorimg">
       <img src="morador-image.jpg" alt="Morador Image">
-      <h2>Informações do Morador</h2>
+    </div>
+    <div style="width:  150px;">
       <ul>
         <li>Nome Completo: {{ morador.nome }}</li>
-        <li>Data de Nascimento: {{ morador.dataNascimento }}</li>
-        <li>Idade: {{ morador.idade }}</li>
+      <div style="display: flex ;justify-content:space-around; width: 220px;" >
+       <div> <li>Data de Nascimento: {{ morador.dataNascimento }}</li></div>
+        <div><li>Idade: {{ morador.idade }}</li></div>
+      </div>
         <li>CPF: {{ morador.cpf }}</li>
         <li>RG: {{ morador.rg }}</li>
       </ul>
     </div>
-    <div class="col-md-6">
+    </div>
+    <div class="Informacao">
+    <div class="txt">
       <h2>Status</h2>
       <p>Ativo/Inativo: {{ morador.status }}</p>
-      <h2>Informações Adicionais</h2>
-      <ul>
+      
+     <!-- <ul>
         <li>Nacionalidade: {{ morador.nacionalidade }}</li>
         <li>Sexo: {{ morador.sexo }}</li>
         <li>Albergue/Fila de Espera: {{ morador.albergue }}</li>
         <li>Observação: {{ morador.observacao }}</li>
-      </ul>
+      </ul>-->
+      <label for="nacionalidade">Nacionalidade:</label>
+      <input type="text" formControlName="nacionalidade" id="nacionalidade" class="form-control" style="width: 250px;">
+    
+      <label for="loclidade">Localidade:</label>
+      <input type="text" formControlName="localidade" id="localidade" class="form-control" style="width: 250px;">
+
+      <label for="sexo">Sexo:</label>
+      <input type="text" formControlName="sexo" id="sexo" class="form-control" style="width: 250px;">
+
+
+      <label for="observacao">Observação</label>
+      <input type="text" formControlName="observacao" id="observacao" class="form-control" style="width: 250px;">
     </div>
+  </div>
   </div>
 </div>

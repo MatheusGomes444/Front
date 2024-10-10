@@ -1,10 +1,14 @@
 .container {
-  max-width: 800px;
-  margin: 40px auto;
+  max-width: 100rem;
+  
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: rgba(210, 232, 227, 1);
+  border: 1px solid #000000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+  padding-left: 5rem;
+
 }
 
 table {
@@ -13,19 +17,22 @@ table {
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 1px solid none;
+  border-radius: 1%;
+ 
   text-align: left;
+  background-color: white;
+  
 }
 
 th {
-  background-color: #f0f0f0;
+ border-radius: 1px solid black;
 }
 
 button {
   background-color: #4CAF50;
   color: #fff;
-  padding: 10px 20px;
+  padding: 7px 60px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
