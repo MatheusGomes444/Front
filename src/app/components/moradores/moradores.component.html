@@ -1,17 +1,16 @@
-<h1 style="padding-left: 2em;padding-top: 3rem;">Moradores</h1>
+<h1>Moradores</h1>
 <div class="container">
-  
-  
-    <div *ngFor="let morador of moradores">
-      <td style="height: 19px; width: 900px; white-space: 15;">
-       <div style="display: flex;"> 
-        <div style="padding-left: 15px;">{{ morador.cpf }}</div>
-       <div style="padding-left: 15px;">{{ morador.nome }}</div>
-        <div style="padding-left: 15px;">{{ morador.albergue }}</div>
-       
-        <div style="padding-left: 15px;"><button (click)="verDetalhes(morador)" routerLink="/detalhesmoradores">Detalhes</button></div>
-       
-      </div>
-      </td>
-      </div>
-  </div>
+      <div *ngFor="let moradores of moradores">
+      <td class="table" style="display: flex; height: 65px; border: solid black; background-color: white; ">
+
+        {{ moradores.nome }}
+        {{ moradores.albergue }}
+        {{ moradores.cpf}}
+
+      <div style="padding-left: 15px; " ><button (click)="(moradores)" routerLink="cadastrarmoradores" style=" width: 260px;height: 45px; background-color: rgba(0, 117, 102, 1); color: white;">Novo Morador </button></div>
+      <div style="padding-left: 15px; "><button (click)="(moradores)" routerLink="DetalhesAlojamanto" style=" width: 260px;height: 45px; background-color: rgba(0, 117, 102, 1); color: white;">Detalhes</button></div>
+      <div style="padding-left: 15px; "><button (click)="(moradores)" routerLink="Localização" style=" width: 260px;height: 45px; background-color: rgba(0, 117, 102, 1); color: white;">Localização</button></div></td>
+
+    </div>
+
+</div>

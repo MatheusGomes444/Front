@@ -1,3 +1,6 @@
+*{
+  background-color: #e1f1f0;
+}
 /* Adicione uma classe específica para os containers que você deseja centralizar */
 .container-center {
   display: flex;
@@ -21,11 +24,11 @@
   border: none;
   border-radius: 5px;
   background-color: #007566;
-  
+
 }
 
 .center-button:hover {
- 
+
 }
 
 /* Adicione uma classe para o componente app-card-produto */
