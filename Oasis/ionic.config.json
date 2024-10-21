@@ -1,7 +1,0 @@
-{
-  "name": "Oasis",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
