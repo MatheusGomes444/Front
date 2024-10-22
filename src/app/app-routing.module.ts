@@ -9,6 +9,7 @@ import { AtualizarProdutoComponent } from './components/produtos/atualizar-produ
 import { CadastrarMoradoresComponent } from './components/cadastrar-moradores/cadastrar-moradores.component';
 import { MoradoresComponent } from './components/moradores/moradores.component';
 import { DetalhesMoradoresComponent } from './components/detalhes-moradores/detalhes-moradores.component';
+import { AlbergueComponent } from './components/albergue/albergue.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'cadastrarmoradores', component: CadastrarMoradoresComponent },
   {path:'produtos', component:ListaProdutosComponent},
   {path:'produtos/cadastrar', component:CadastrarProdutosComponent},
+  {path:'albergue', component:AlbergueComponent},
   {path:'produtos/atualizar/:id', component: AtualizarProdutoComponent}
 ];
 
