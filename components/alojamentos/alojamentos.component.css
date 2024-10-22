@@ -1,0 +1,26 @@
+.alojamentos {
+  max-width: 100rem;
+  
+  padding: 20px;
+  background-color: rgba(210, 232, 227, 1);
+  border: 1px solid #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+  padding-left: 5rem;
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+h1{
+  padding-left: 4rem;
+}
