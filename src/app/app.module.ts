@@ -34,6 +34,7 @@ import { AlbergueComponent } from './components/albergue/albergue.component';
 
 
 
+
 registerLocaleData(localePt);
 
 
@@ -51,6 +52,7 @@ registerLocaleData(localePt);
     MoradoresComponent,
     DetalhesMoradoresComponent,
     AlbergueComponent,
+  
 
 
   ],

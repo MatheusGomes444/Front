@@ -1,12 +1,4 @@
-// moradores.component.ts
-
-import { Component } from "@angular/core";
-
-interface Morador {
-  cpf: string;
-  nome: string;
-  albergue: string;
-}
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-moradores',
@@ -14,15 +6,24 @@ interface Morador {
   styleUrls: ['./moradores.component.css']
 })
 export class MoradoresComponent {
-  moradores: Morador[] = [
-    { cpf: '12345678909', nome: 'João Silva', albergue: 'Albergue 1' },
-    { cpf: '98765432109', nome: 'Maria Rodrigues', albergue: 'Albergue 2' },
-    { cpf: '11122233344', nome: 'José Oliveira', albergue: 'Albergue 3' },
-    // ...
-  ];
+  moradores: any[] = [];
 
-  verDetalhes(morador: Morador) {
-    console.log(`Detalhes do morador ${morador.nome}`);
-    // implementar lógica para mostrar detalhes do morador
+  constructor() {
+    // Carregar moradores do localStorage
+    this.moradores = JSON.parse(localStorage.getItem('moradores') || '[]');
+  }
+
+  novoMorador() {
+    // Lógica para criar um novo morador (pode ser um redirecionamento ou abertura de um modal)
+  }
+
+  detalhesAlojamento(morador: any) {
+    // Lógica para exibir detalhes do alojamento do morador
+    console.log('Detalhes do morador:', morador);
+  }
+
+  localizacao(morador: any) {
+    // Lógica para exibir localização do morador
+    console.log('Localização do morador:', morador);
   }
 }
