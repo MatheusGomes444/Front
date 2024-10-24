@@ -5,8 +5,8 @@
       {{ morador.nome }} - {{ morador.albergue }} - {{ morador.cpf }}
     </div>
     <div class="morador-actions">
-      <button (click)="novoMorador()" routerLink="cadastrarmoradores" class="btn-novo-morador">Novo Morador</button>
-      <button (click)="detalhesAlojamento(morador)" routerLink="DetalhesAlojamanto" class="btn-detalhes">Detalhes</button>
+      <button (click)="novoMorador()" routerLink="/cadastrarmoradores" class="btn-novo-morador">Novo Morador</button>
+      <button (click)="detalhesAlojamento(morador)" routerLink="/detalhesmoradores" class="btn-detalhes">Detalhes</button>
       <button (click)="localizacao(morador)" routerLink="Localização" class="btn-localizacao">Localização</button>
     </div>
   </div>

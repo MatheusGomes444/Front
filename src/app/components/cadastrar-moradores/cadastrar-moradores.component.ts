@@ -40,6 +40,7 @@ export class CadastrarMoradoresComponent implements OnInit {
   }
 
   voltar() {
-    this.router.navigate(['/moradores']);
+    // Restaura os dados do formulário
+    this.form.reset();
   }
 }

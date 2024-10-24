@@ -27,10 +27,6 @@
 
 }
 
-.center-button:hover {
-
-}
-
 /* Adicione uma classe para o componente app-card-produto */
 .app-card-produto-container {
   display: flex;
@@ -51,3 +47,21 @@
 .primeira {
   display: flex;
 }
+
+button {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #007566;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+button:hover {
+
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+

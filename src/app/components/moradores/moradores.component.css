@@ -25,19 +25,30 @@
 .morador-actions {
   display: flex;
   justify-content: space-between;
-  width: 100%; /* Para que os botões se estendam */
+  gap: 10px;
+ 
 }
 
-.btn-novo-morador, .btn-detalhes, .btn-localizacao {
-  width: 100px; /* Tamanho fixo para os botões */
-  height: 40px;
-  background-color: rgba(0, 117, 102, 1);
-  color: white;
-  border: none;
+button {
+  padding: 10.10px 9px;
+  border: 0;
   border-radius: 10px;
-  cursor: pointer;
+  background-color: #007566;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 
-.btn-novo-morador:hover, .btn-detalhes:hover, .btn-localizacao:hover {
-  background-color: rgba(0, 117, 102, 0.8);
+button:hover {
+
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+.container{
+  width: 200rem;
+ 
+}
+h1{
+  text-align: center;
 }
