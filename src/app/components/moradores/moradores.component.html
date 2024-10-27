@@ -1,6 +1,16 @@
 <h1>Moradores</h1>
+
+<input 
+  type="text" 
+  name="text" 
+  placeholder="Pesquisar" 
+  class="input" 
+  [(ngModel)]="searchTerm" 
+  (input)="onSearch()" 
+>
+
 <div class="container">
-  <div *ngFor="let morador of moradores" class="morador-item">
+  <div *ngFor="let morador of filteredMoradores" class="morador-item">
     <div class="morador-info">
       {{ morador.nome }} - {{ morador.albergue }} - {{ morador.cpf }}
     </div>

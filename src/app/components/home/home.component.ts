@@ -7,11 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  nomeProduto: string = 'Curso de Angular'
-anuncio: string = 'O Curso de Angular está em promoção';
-idProduto: number = 3;
-precoProduto: number =  2.51;
-promocao: boolean = false;
-foto:string = 'assets/img/crud.png';
+
 }
 

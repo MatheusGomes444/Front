@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   background-color: #007566 !important;
-  padding: 5px 0; /* Ajuste o padding conforme necessário */
+  padding: 0px 0; /* Ajuste o padding conforme necessário */
   z-index: 1000;
 }
 
