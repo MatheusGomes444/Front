@@ -1,21 +1,34 @@
 h1 {
   font-size: 24px;
   margin-bottom: 10px;
+  padding-left: 14rem;
+
 }
 
 .container-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  max-width: 1200px;
+  margin: 40px auto;
+ 
+  display: flex;                    
 
+  padding-left: 8rem;
+}
+.img{
+  width: 325px;
+  height: 350px;
+  border-radius: 1;
+  border: solid 1px;
+}
 .button-container {
-  display: flex; /* Mantém os botões na mesma linha */
+   /* Mantém os botões na mesma linha */
   justify-content: center; /* Alinha os botões ao centro */
   align-items: center;
   height: 5rem;
   margin-bottom: 3rem;
-  gap: 20px; /* Espaço entre os botões */
+  gap: 50px; /* Espaço entre os botões */
+  padding-left: 3rem;
+  margin-top: 2rem;
+    
 }
 
 .center-button {
