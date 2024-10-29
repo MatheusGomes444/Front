@@ -28,6 +28,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MoradoresComponent } from './components/moradores/moradores.component';
 import { DetalhesMoradoresComponent } from './components/detalhes-moradores/detalhes-moradores.component';
 import { AlbergueComponent } from './components/albergue/albergue.component';
+import { DetalhesAlojamentoComponent } from './components/detalhes-alojamento/detalhes-alojamento.component';
 
 
 
@@ -51,6 +52,7 @@ registerLocaleData(localePt);
     AlojamentosComponent,
     MoradoresComponent,
     DetalhesMoradoresComponent,
+    DetalhesAlojamentoComponent,
     AlbergueComponent,
   
 

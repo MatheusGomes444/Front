@@ -1,12 +1,12 @@
 <h1>Moradores</h1>
 
-<input 
-  type="text" 
-  name="text" 
-  placeholder="Pesquisar" 
-  class="input" 
-  [(ngModel)]="searchTerm" 
-  (input)="onSearch()" 
+<input
+  type="text"
+  name="text"
+  placeholder="Pesquisar"
+  class="input"
+  [(ngModel)]="searchTerm"
+  (input)="onSearch()"
 >
 
 <div class="container">
@@ -15,7 +15,7 @@
       {{ morador.nome }} - {{ morador.albergue }} - {{ morador.cpf }}
     </div>
     <div class="morador-actions">
-     
+
       <button (click)="detalhesAlojamento(morador)" routerLink="/detalhesmoradores" class="btn-detalhes">Detalhes</button>
       <button (click)="localizacao(morador)" routerLink="Localização" class="btn-localizacao">Localização</button>
     </div>

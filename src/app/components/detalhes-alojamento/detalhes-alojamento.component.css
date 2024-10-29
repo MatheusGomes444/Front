@@ -1,0 +1,56 @@
+.container {
+  width: 1220px;
+  height: auto; /* Ajuste para altura automática */
+  margin: 40px auto;
+  padding: 20px; /* Ajuste de padding para melhor espaçamento */
+
+  border-radius: 1px;
+  
+  
+  display: flex; /* Flexbox para layout */
+}
+
+.left-section {
+  flex: 1;
+  margin-right: 20px;
+  text-align: center; /* Centraliza o texto */
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Alinha os elementos em coluna */
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between; /* Espaçamento entre os elementos */
+  margin-bottom: 20px;
+}
+
+label {
+  margin-right: 10px; /* Espaçamento entre o label e o input/select */
+}
+
+select, input[type="checkbox"] {
+  width: 100%; /* Ajusta a largura dos inputs e selects */
+}
+
+input[type="checkbox"] {
+  width: auto; /* Checkbox não precisa de largura total */
+}
+
+@media (min-width: 768px) {
+  .form-group {
+    flex: 1; /* Cada grupo ocupa uma coluna */
+    max-width: 45%; /* Limita a largura máxima para 45% */
+  }
+}

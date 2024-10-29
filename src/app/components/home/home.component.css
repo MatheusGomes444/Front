@@ -65,3 +65,32 @@ button:hover {
   transform: scale(1.1);
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 0px; /* Ajuste o espaço inferior */
+  
+}
+
+ul {
+  list-style-type: none; /* Remove os marcadores da lista */
+  margin: 0; /* Remove a margem padrão */
+  padding: 0; /* Remove o padding padrão */
+  display: flex; /* Usar flexbox para a lista */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+}
+
+li {
+  margin: 0 10px; /* Espaçamento entre os itens */
+}
+
+a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: rgb(0, 0, 0); /* Cor dos links, alterada para branco para melhor contraste */
+}
+
+a:hover {
+  text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+.fixed-bottom .nav {
+  background-color: #007566; /* Nova cor de fundo */
+}

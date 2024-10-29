@@ -10,6 +10,8 @@ import { CadastrarMoradoresComponent } from './components/cadastrar-moradores/ca
 import { MoradoresComponent } from './components/moradores/moradores.component';
 import { DetalhesMoradoresComponent } from './components/detalhes-moradores/detalhes-moradores.component';
 import { AlbergueComponent } from './components/albergue/albergue.component';
+import { DetalhesAlojamentoComponent } from './components/detalhes-alojamento/detalhes-alojamento.component';
+
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path:'produtos', component:ListaProdutosComponent},
   {path:'produtos/cadastrar', component:CadastrarProdutosComponent},
   {path:'albergue', component:AlbergueComponent},
+  {path:'detalhesalojamento', component:DetalhesAlojamentoComponent},
   {path:'produtos/atualizar/:id', component: AtualizarProdutoComponent}
 ];
 
