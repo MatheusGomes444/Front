@@ -57,3 +57,15 @@ button:hover {
   box-shadow: 0 0 20px #6fc5ff50;
   transform: scale(1.1);
 }
+.contribuintes-list {
+  margin-left: 20px; /* Espaço entre a imagem e a lista */
+}
+
+.contribuintes-list ul {
+  list-style-type: none; /* Remove os marcadores da lista */
+  padding: 0; /* Remove o padding padrão */
+}
+
+.contribuintes-list li {
+  padding: 5px 0; /* Espaçamento entre os itens da lista */
+}
