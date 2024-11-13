@@ -5,75 +5,61 @@
   </div>
   
   <div class="right-section">
-    
+    <h2>Escolhas</h2>
     <form>
-      <div style="display: flex; padding-top: 2rem;">
       <div class="form-group">
-       
         <label for="pet">Pet:</label>
-        <select id="pet" style="border: none; background-color: transparent;">
-          <option value="Nada"> </option>
+        <select id="pet">
           <option value="cao">Cão</option>
           <option value="gato">Gato</option>
           <option value="outro">Outro</option>
         </select>
       </div>
 
-      <div class="form-group" style="padding-left: 11rem;">
+      <div class="form-group">
         <label for="sexo">Sexo:</label>
-        <select id="sexo" style="border: none; background-color: transparent;">
-          <option value="macho">Masculino</option>
-          <option value="femea">Feminino</option>
+        <select id="sexo">
+          <option value="macho">Macho</option>
+          <option value="femea">Fêmea</option>
         </select>
       </div>
-    </div>
-    <div style="display: flex; padding-top: 2rem;">
-      <div class="form-group" >
-        <label for="sobrenome" >Área de lazer:</label>
-        <select  id="yes or no" style="background-color: transparent; border: none;">
-          <option value="Nada"></option>
-          <option value="sim">Sim</option>
-          <option value="Não">Não</option>
-        </select>
+
+      <div class="form-group">
+        <label for="sobrenome">Área de lazer:</label>
+        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px;">
       </div>
-      <div class="form-group" style="padding-left: 7rem;">
+      <div class="form-group">
         <label for="sobrenome">Pertences:</label>
-        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px; background-color: transparent; border-bottom: 1px solid black;">
+        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px;">
       </div>
-    </div>
-    <div style="display: flex; padding-top: 2rem;">
+
       <div class="form-group">
         <label for="Refeiçöes">Refeiçöes:</label>
-        <select id="Refeiçöes" style="border: none; background-color: transparent;">
+        <select id="Refeiçöes">
           <option value="manha">7:00 as 10:00</option>
           <option value="tarde">12:00 as 17:00</option>
           <option value="noite">19:00 as 22:00</option>
         </select>
       </div>
 
-      <div class="form-group" style="padding-left: 4.5rem;">
+      <div class="form-group">
         <label for="horario">Horário:</label>
-        <select id="horario" style="border: none; background-color: transparent;">
+        <select id="horario">
           <option value="manha">Manhã</option>
           <option value="tarde">Tarde</option>
           <option value="noite">Noite</option>
         </select>
       </div>
-    </div>
-    <div style="display: flex; padding-top: 2rem;">
+
       <div class="form-group">
         <label for="sobrenome">Acolhimento:</label>
-        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px; background-color: transparent; border-bottom: solid black 1px; ">
+        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px;">
       </div>
 
-      <div class="form-group" style="padding-left: 3rem;">
+      <div class="form-group">
         <label for="programas">Programas:</label>
         <input type="checkbox" id="programas" />
       </div>
-    </div>
-    <div class="button-container">
-      <button class="center-button"style="background- color:rgb(0, 117, 102); color: white" routerLink="/moradores" >Listar Moradores</button>
-    </div>
     </form>
   </div>
 </div>

@@ -5,10 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
-import { FooterComponent } from './template/footer/footer.component';
-import { ListaProdutosComponent } from './components/produtos/lista-produtos/lista-produtos.component';
-import { CadastrarProdutosComponent } from './components/produtos/cadastrar-produtos/cadastrar-produtos.component';
-import { AtualizarProdutoComponent } from './components/produtos/atualizar-produto/atualizar-produto.component';
 import { HomeComponent } from './components/home/home.component';
 import { CadastrarMoradoresComponent } from './components/cadastrar-moradores/cadastrar-moradores.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +25,7 @@ import { MoradoresComponent } from './components/moradores/moradores.component';
 import { DetalhesMoradoresComponent } from './components/detalhes-moradores/detalhes-moradores.component';
 import { AlbergueComponent } from './components/albergue/albergue.component';
 import { DetalhesAlojamentoComponent } from './components/detalhes-alojamento/detalhes-alojamento.component';
-
+import { MoradorService } from './services/morador.service';
 
 
 
@@ -43,18 +39,14 @@ registerLocaleData(localePt);
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    ListaProdutosComponent,
-    CadastrarProdutosComponent,
     HomeComponent,
-    AtualizarProdutoComponent,
-    CadastrarMoradoresComponent,
+   CadastrarMoradoresComponent,
     AlojamentosComponent,
     MoradoresComponent,
     DetalhesMoradoresComponent,
     DetalhesAlojamentoComponent,
     AlbergueComponent,
-  
+
 
 
   ],
@@ -73,6 +65,7 @@ registerLocaleData(localePt);
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
+    [MoradorService],
 
 ],
 

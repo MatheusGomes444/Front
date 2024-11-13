@@ -1,96 +1,112 @@
-*{
-  background-color: #e1f1f0;
+* {
+  box-sizing: border-box; /* Adiciona box-sizing para facilitar o controle de larguras e alturas */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove padding padrão */
+
 }
-/* Adicione uma classe específica para os containers que você deseja centralizar */
+
 .container-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* ajuste a altura conforme necessário */
+  flex-wrap: wrap; /* Permite que os cards se movam para a próxima linha se necessário */
+  height: auto; /* Ajusta a altura conforme necessário */
+  padding: 20px; /* Adiciona espaçamento interno */
 }
 
-.button-container {
+.card-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 5rem;
-  margin-bottom: 3rem;
+  flex-wrap: wrap; /* Permite que os cards se movam para a próxima linha se necessário */
+  max-width: 1200px;
 }
 
-.center-button {
-  padding: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #007566;
-
-}
-
-/* Adicione uma classe para o componente app-card-produto */
-.app-card-produto-container {
+.card {
+  position: relative; /* Necessário para o posicionamento absoluto do h1 e descrição */
+  width: 260px;
+  height: 350px; /* Ajusta a altura para melhor proporção */
+  margin: 15px; /* Espaçamento entre os cards */
+  border-radius: 15px; /* Arredondamento dos cantos */
+  background: rgba(33, 33, 33, 0.8); /* Fundo semi-transparente */
+  text-decoration: none;
+  color: inherit;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  padding: 8rem;
+  overflow: hidden; /* Garante que nada saia do card */
+  transition: transform 0.2s, background 0.2s; /* Adiciona transição suave */
 }
 
-.app-card-produto {
-  /* adicione estilos para o componente app-card-produto */
-  width: 300px; /* ajuste a largura conforme necessário */
-  height: 200px; /* ajuste a altura conforme necessário */
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
+
+
+.card h1 {
+  position: absolute; /* Posiciona o título sobre a imagem */
+  top: 50%; /* Ajusta a posição vertical do título */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta a centralização */
+  color: white; /* Cor do texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para melhor legibilidade */
+  font-size: 2rem; /* Tamanho da fonte */
+  background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  padding: 5px 10px; /* Adiciona espaço ao redor do texto */
+  border-radius: 5px; /* Arredonda os cantos do fundo */
+  z-index: 1; /* Garante que o texto fique acima da imagem */
+
 }
-.primeira {
+
+.card:hover {
+  transform: scale(1.05); /* Aumenta o tamanho do card ao passar o mouse */
+  background: rgba(33, 33, 33, 0.9);
+
+}
+
+.card img {
+  height: 100%; /* Ajusta a altura da imagem */
+  width: 100%; /* Largura total do card */
+  border-radius: 15px 15px 0 0; /* Arredondamento dos cantos superiores */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+  opacity: 0.7; /* Ajusta a transparência da imagem */
+  transition: opacity 0.2s; /* Transição suave para a mudança de opacidade */
+}
+
+.card img:hover {
+  opacity: 100; /* Torna a imagem completamente opaca ao passar o mouse */
+}
+
+.footer {
+  text-align: center; /* Centraliza o texto na seção de contatos */
+  padding: 0px 25rem; /* Reduz o espaçamento interno */
+  background-color: rgb(0, 117, 102); /* Fundo semi-transparente */
+
+  margin-top: 20px; /* Espaçamento acima da seção de contatos */
+}
+
+.footer h2.title {
+  font-size: 1.5rem; /* Reduz o tamanho do título */
+  margin-bottom: 10px; /* Reduz o espaçamento abaixo do título */
+  color: #fff;
+}
+
+.footer ul {
   display: flex;
-}
 
-button {
-  padding: 12.5px 30px;
-  border: 0;
-  border-radius: 100px;
-  background-color: #007566;
-  color: #ffffff;
-  font-weight: Bold;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-}
-
-button:hover {
-
-  box-shadow: 0 0 20px #6fc5ff50;
-  transform: scale(1.1);
-}
-
-.title {
-  text-align: center;
-  margin-bottom: 0px; /* Ajuste o espaço inferior */
-  
-}
-
-ul {
   list-style-type: none; /* Remove os marcadores da lista */
-  margin: 0; /* Remove a margem padrão */
-  padding: 0; /* Remove o padding padrão */
-  display: flex; /* Usar flexbox para a lista */
-  justify-content: center; /* Centraliza os itens horizontalmente */
+  padding: 0; /* Remove o padding da lista */
+
 }
 
-li {
-  margin: 0 10px; /* Espaçamento entre os itens */
+.footer li {
+  margin: 10px ; /* Reduz o espaçamento entre os itens da lista */
+
 }
 
-a {
+.footer a {
+  color: #ffffff; /* Cor dos links */
   text-decoration: none; /* Remove o sublinhado dos links */
-  color: rgb(0, 0, 0); /* Cor dos links, alterada para branco para melhor contraste */
+  transition: color 0.3s; /* Transição suave para a mudança de cor */
 }
 
-a:hover {
-  text-decoration: underline; /* Sublinha ao passar o mouse */
-}
-.fixed-bottom .nav {
-  background-color: #007566; /* Nova cor de fundo */
+.footer a:hover {
+  color: #81c784; /* Cor dos links ao passar o mouse */
 }

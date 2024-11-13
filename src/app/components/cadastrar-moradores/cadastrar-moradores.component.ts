@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MoradorService } from 'src/app/services/morador.service';
+import { Morador } from '../model/Morador.model';
 
 @Component({
   selector: 'app-cadastrar-moradores',
@@ -8,39 +9,59 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastrar-moradores.component.css']
 })
 export class CadastrarMoradoresComponent implements OnInit {
-  form = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    sobrenome: new FormControl('', Validators.required),
-    rg: new FormControl('', Validators.required),
-    CPF: new FormControl('', Validators.required),
-    dtnscimento: new FormControl('', Validators.required),
-    Sexo: new FormControl('', Validators.required),
-    telefone: new FormControl('', Validators.required),
-    endereco: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email])
-  });
+  form: FormGroup;
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder, private moradorService: MoradorService) {
+    this.form = this.fb.group({
+      nome: ['', Validators.required],
+      sobrenome: ['', Validators.required],
+      rg: ['', Validators.required],
+      cpf: ['', Validators.required],
+      dataNascimento: ['', Validators.required],
+      sexo: ['', Validators.required],
+      telefone: ['', Validators.required],
+      endereco: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      nacionalidade: [''], // Opcional
+      idade: [''] // Opcional
+    });
   }
 
-  cadastrarMorador() {
-    // Recupera a lista de moradores do localStorage
-    const moradores = JSON.parse(localStorage.getItem('moradores') || '[]');
-
-    // Adiciona o novo morador à lista
-    moradores.push(this.form.value);
-
-    // Salva a lista atualizada no localStorage
-    localStorage.setItem('moradores', JSON.stringify(moradores));
-
-    // Redireciona para a página de moradores
-    this.router.navigate(['/moradores']);
+  ngOnInit(): void {}
+  salvar() {
+    if (this.form.valid) {
+      const morador: Morador = {
+        id: 0, // ou null, dependendo da sua lógica
+        nome: this.form.value.nome,
+        sobrenome: this.form.value.sobrenome,
+        rg: this.form.value.rg,
+        cpf: this.form.value.cpf,
+        dataNascimento: this.form.value.dataNascimento,
+        sexo: this.form.value.sexo,
+        telefone: this.form.value.telefone,
+        endereco: this.form.value.endereco,
+        email: this.form.value.email,
+        nacionalidade: this.form.value.nacionalidade,
+        idade: this.form.value.idade ? +this.form.value.idade : undefined // Converte para número, se existir
+      };
+  
+      this.moradorService.inserirMorador(morador).subscribe({
+        next: (response) => {
+          console.log('Morador salvo com sucesso!', response);
+        },
+        error: (error) => {
+          console.error('Erro ao salvar morador', error);
+        },
+        complete: () => {
+          console.log('Operação completa');
+        }
+      });
+    } else {
+      console.error('Formulário inválido');
+    }
   }
 
   voltar() {
-    // Restaura os dados do formulário
-    this.form.reset();
+    // Lógica para voltar
   }
 }

@@ -1,23 +1,25 @@
+
 h1 {
   font-size: 24px;
-  margin-bottom: 10px;
-  padding-left: 14rem;
+  margin-bottom: 5px;
+  padding-left: 15rem;
+padding-top: 2rem;
 
 }
 
 .container-center {
   max-width: 1200px;
   margin: 40px auto;
- 
-  display: flex;                    
+
+  display: flex;
 
   padding-left: 8rem;
 }
 .img{
   width: 325px;
-  height: 350px;
+  height: 354px;
   border-radius: 1;
-  border: solid 1px;
+  border: 1px solid;
 }
 .button-container {
    /* Mantém os botões na mesma linha */
@@ -28,7 +30,7 @@ h1 {
   gap: 50px; /* Espaço entre os botões */
   padding-left: 3rem;
   margin-top: 2rem;
-    
+
 }
 
 .center-button {
@@ -56,18 +58,4 @@ button {
 button:hover {
   box-shadow: 0 0 20px #6fc5ff50;
   transform: scale(1.1);
-}
-.contribuintes-list {
-  margin-left: 60px; /* Espaço entre a imagem e a lista */
-  border: solid  1px black;
-
-}
-
-.contribuintes-list ul {
-  list-style-type: none; /* Remove os marcadores da lista */
-  padding: 0; /* Remove o padding padrão */
-}
-
-.contribuintes-list li {
-  padding: 5px 0; /* Espaçamento entre os itens da lista */
 }

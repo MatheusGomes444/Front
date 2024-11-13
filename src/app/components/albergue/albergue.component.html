@@ -1,22 +1,13 @@
 <h1>Nome do Albergue</h1>
 <div class="container-center">
-  <div class="img">
-    <img src="https://96fmbauru.com.br/wp-content/uploads/2023/06/Albergue-carrossel-quem-somos.jpg" alt="Imagem do Albergue" style="width: 100%; max-width: 300px;"/>
-  </div>
-
-  <div class="button-container">
-    <div><button class="center-button" style="background-color: rgb(0, 117, 102); color: white" routerLink="/moradores">Moradores</button></div>
-    <div style="padding-top: 20px; padding-bottom: 20px;">
-      <button class="center-button" style="background-color: rgb(0, 117, 102); color: white" (click)="showContribuintes()">Contribuintes</button>
-    </div>
-    <div><button class="center-button" style="background-color: rgb(0, 117, 102); color: white" routerLink="/detalhesalojamento">Detalhes Alojamentos</button></div>
-  </div>
-
-  <!-- Adicionando a lista de contribuintes -->
-  <div class="contribuintes-list" *ngIf="showList">
-    <h3>Lista de Contribuintes</h3>
-    <ul>
-      <li *ngFor="let contribuinte of contribuintes">{{ contribuinte }}</li>
-    </ul>
-  </div>
+<div class="img">
+<img src="https://96fmbauru.com.br/wp-content/uploads/2023/06/Albergue-carrossel-quem-somos.jpg" alt="Imagem do Albergue" style="width: 100%; max-width: 450px; height: 22rem;"/>
 </div>
+
+    <div class="button-container">
+      <div><button class="center-button" style="background-color: rgb(0, 117, 102); color: white" routerLink="/moradores">Moradores</button></div>
+      <div style="padding-top: 20px; padding-bottom: 20px;"><button class="center-button" style="background-color: rgb(0, 117, 102); color: white" routerLink="/">Contribuintes</button></div>
+      <div><button class="center-button" style="background-color: rgb(0, 117, 102); color: white" routerLink="/">Delatalhes Alojamentos</button></div>
+    </div>
+  </div>
+

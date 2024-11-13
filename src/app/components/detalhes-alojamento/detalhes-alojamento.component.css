@@ -1,9 +1,9 @@
 .container {
-  width: auto;
-  height: 500px; /* Ajuste para altura automática */
+  width: 1220px;
+  height: auto; /* Ajuste para altura automática */
   margin: 40px auto;
   padding: 20px; /* Ajuste de padding para melhor espaçamento */
- 
+
   border-radius: 1px;
   
   
@@ -17,15 +17,10 @@
 }
 
 .right-section {
-  justify-content: space-around;
+  flex: 1;
   display: flex;
-  border: solid 1px black;
- 
-  width:500px ;
- background-color: rgb(	210	,232	,227);
+  flex-direction: column; /* Alinha os elementos em coluna */
 }
-  
-
 
 h1 {
   text-align: center;
@@ -36,19 +31,17 @@ h2 {
 }
 
 .form-group {
- 
   display: flex;
   justify-content: space-between; /* Espaçamento entre os elementos */
   margin-bottom: 20px;
 }
 
 label {
- 
   margin-right: 10px; /* Espaçamento entre o label e o input/select */
 }
 
 select, input[type="checkbox"] {
-  /* Ajusta a largura dos inputs e selects */
+  width: 100%; /* Ajusta a largura dos inputs e selects */
 }
 
 input[type="checkbox"] {
@@ -57,30 +50,7 @@ input[type="checkbox"] {
 
 @media (min-width: 768px) {
   .form-group {
-   /* Cada grupo ocupa uma coluna */
+    flex: 1; /* Cada grupo ocupa uma coluna */
     max-width: 45%; /* Limita a largura máxima para 45% */
   }
-}
-.button-container {
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  height: 5rem;
-  margin-bottom: 3rem;
-  padding-right: 2rem;
-}
-button {
-  padding: 12.5px 30px;
-  border: 0;
-  border-radius: 100px;
-  background-color: #007566;
-  color: #ffffff;
-  font-weight: Bold;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-}
-button:hover {
-
-  box-shadow: 0 0 20px #6fc5ff50;
-  transform: scale(1.1);
 }
