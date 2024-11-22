@@ -1,63 +1,115 @@
 <h1>Cadastrar Moradores</h1>
 <div class="container">
-  <form [formGroup]="form" (ngSubmit)="salvar()">
-
+  <form [formGroup]="form" (ngSubmit)="cadastrarMorador()">
     <!-- Sessão de cima -->
     <div class="primeira">
       <div class="form-group">
-        <label for="nome">Nome:</label>
-        <input type="text" formControlName="nome" id="nome" class="form-control" style="width: 250px;">
+        <label for="Nome">Nome:</label>
+        <input
+          type="text"
+          formControlName="Nome"
+          id="Nome"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
       <div class="form-group">
-        <label for="sobrenome">Sobrenome:</label>
-        <input type="text" formControlName="sobrenome" id="sobrenome" class="form-control" style="width: 250px;">
+        <label for="CPF">CPF:</label>
+        <input
+          type="text"
+          formControlName="CPF"
+          id="CPF"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
       <div class="form-group">
-        <label for="rg">RG:</label>
-        <input type="text" formControlName="rg" id="rg" class="form-control" style="width: 250px;">
+        <label for="Telefone">Telefone:</label>
+        <input
+          type="text"
+          formControlName="Telefone"
+          id="Telefone"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
     </div>
 
     <!-- Sessão meio -->
     <div class="segunda">
       <div class="form-group">
-        <label for="cpf">CPF:</label>
-        <input type="text" formControlName="cpf" id="cpf" class="form-control" style="width: 250px;">
+        <label for="Endereco">Endereço:</label>
+        <input
+          type="text"
+          formControlName="Endereco"
+          id="Endereco"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
       <div class="form-group">
-        <label for="idade">Idade:</label>
-        <input type="number" formControlName="idade" id="idade" class="form-control" style="width: 250px;">
+        <label for="Datanascimento">Data de Nascimento:</label>
+        <input
+          type="date"
+          formControlName="Datanascimento"
+          id="Datanascimento"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
       <div class="form-group">
-        <label for="dataNascimento">Data de Nascimento:</label>
-        <input type="date" formControlName="dataNascimento" id="dataNascimento" class="form-control" style="width: 250px;">
-      </div>
-      <div class="form-group">
-        <label for="sexo">Sexo:</label>
-        <input type="text" formControlName="sexo" id="sexo" class="form-control" style="width: 250px;">
+        <label for="Sexo">Sexo:</label>
+        <input
+          type="text"
+          formControlName="Sexo"
+          id="Sexo"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
     </div>
 
     <!-- Sessão Final -->
     <div class="terceira">
       <div class="form-group">
-        <label for="telefone">Telefone:</label>
-        <input type="text" formControlName="telefone" id="telefone" class="form-control" style="width: 250px;">
+        <label for="Idade">Idade:</label>
+        <input
+          type="number"
+          formControlName="Idade"
+          id="Idade"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
       <div class="form-group">
-        <label for="endereco">Endereço:</label>
-        <input type="text" formControlName="endereco" id="endereco" class="form-control" style="width: 250px;">
-      </div>
-      <div class="form-group">
-        <label for="email">E-mail:</label>
-        <input type="email" formControlName="email" id="email" class="form-control" style="width: 250px;">
+        <label for="Nacionalidade">Nacionalidade:</label>
+        <input
+          type="text"
+          formControlName="Nacionalidade"
+          id="Nacionalidade"
+          class="form-control"
+          style="width: 250px;"
+        />
       </div>
     </div>
 
     <!-- Div botões -->
     <div class="btnbtn">
-      <button type="submit" class="btn btn-primary" style="width: 150px;">Salvar</button>
-      <button type="button" class="btn btn-primary" (click)="voltar()" style="right: 50px; width: 150px;">Voltar</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="width: 150px;"
+      >
+        Salvar
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="voltar()"
+        style="right: 50px; width: 150px;"
+      >
+        Voltar
+      </button>
     </div>
   </form>
 </div>

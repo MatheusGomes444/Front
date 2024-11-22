@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MoradorService } from 'src/app/services/morador.service';
-import { Morador } from '../model/Morador.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr'; // Importa o Toastr
+import { CadastrarMoradorService } from 'services/CadastrarMoradorService'; 
+import { Morador } from '../model/Morador.model'; 
 
 @Component({
   selector: 'app-cadastrar-moradores',
@@ -9,59 +11,62 @@ import { Morador } from '../model/Morador.model';
   styleUrls: ['./cadastrar-moradores.component.css']
 })
 export class CadastrarMoradoresComponent implements OnInit {
-  form: FormGroup;
+  form = new FormGroup({
+    Nome: new FormControl('', Validators.required),
+    CPF: new FormControl('', Validators.required),
+    Telefone: new FormControl('', Validators.required),
+    Endereco: new FormControl('', Validators.required),
+    Datanascimento: new FormControl('', Validators.required), // Corrigido
+    Sexo: new FormControl('', Validators.required), // Corrigido
+    Idade: new FormControl('', Validators.required), // Incluído no form
+    Nacionalidade: new FormControl('', Validators.required) // Incluído no form
+  });
+  
 
-  constructor(private fb: FormBuilder, private moradorService: MoradorService) {
-    this.form = this.fb.group({
-      nome: ['', Validators.required],
-      sobrenome: ['', Validators.required],
-      rg: ['', Validators.required],
-      cpf: ['', Validators.required],
-      dataNascimento: ['', Validators.required],
-      sexo: ['', Validators.required],
-      telefone: ['', Validators.required],
-      endereco: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      nacionalidade: [''], // Opcional
-      idade: [''] // Opcional
-    });
-  }
+
+  constructor(
+    private router: Router,
+    private toastr: ToastrService, // Injeta o serviço Toastr
+    private cadastrarMoradorService: CadastrarMoradorService
+  ) {}
 
   ngOnInit(): void {}
-  salvar() {
+
+  cadastrarMorador(): void {
     if (this.form.valid) {
-      const morador: Morador = {
-        id: 0, // ou null, dependendo da sua lógica
-        nome: this.form.value.nome,
-        sobrenome: this.form.value.sobrenome,
-        rg: this.form.value.rg,
-        cpf: this.form.value.cpf,
-        dataNascimento: this.form.value.dataNascimento,
-        sexo: this.form.value.sexo,
-        telefone: this.form.value.telefone,
-        endereco: this.form.value.endereco,
-        email: this.form.value.email,
-        nacionalidade: this.form.value.nacionalidade,
-        idade: this.form.value.idade ? +this.form.value.idade : undefined // Converte para número, se existir
+      const formValues = this.form.value;
+  
+      // Criar o objeto novoMorador com os valores tratados
+      const novoMorador: Morador = {
+        Nome: formValues.Nome ?? '', // Define valor padrão vazio se for null ou undefined
+        CPF: formValues.CPF ?? '',
+        Telefone: formValues.Telefone ?? '',
+        Endereco: formValues.Endereco ?? '',
+        Datanascimento: formValues.Datanascimento 
+          ? parseInt(formValues.Datanascimento.replace(/-/g, '')) 
+          : 0, // Converte para número ou usa 0 como padrão
+        Sexo: formValues.Sexo ?? '',
+        Idade: formValues.Idade ? parseInt(formValues.Idade) : 0, // Converte ou usa 0
+        Nacionalidade: formValues.Nacionalidade ?? ''
       };
   
-      this.moradorService.inserirMorador(morador).subscribe({
-        next: (response) => {
-          console.log('Morador salvo com sucesso!', response);
+      this.cadastrarMoradorService.cadastrar(novoMorador).subscribe({
+        next: () => {
+          this.toastr.success('Morador cadastrado com sucesso!', 'Sucesso');
+          this.router.navigate(['/moradores']);
         },
-        error: (error) => {
-          console.error('Erro ao salvar morador', error);
-        },
-        complete: () => {
-          console.log('Operação completa');
+        error: (err) => {
+          console.error('Erro ao cadastrar morador:', err);
+          this.toastr.error('Erro ao cadastrar morador. Tente novamente.', 'Erro');
         }
       });
     } else {
-      console.error('Formulário inválido');
+      this.toastr.warning('Por favor, preencha todos os campos obrigatórios.', 'Atenção');
     }
   }
+  
 
-  voltar() {
-    // Lógica para voltar
+  voltar(): void {
+    this.form.reset();
   }
 }

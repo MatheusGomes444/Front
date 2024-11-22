@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MoradoresService } from 'services/MoradoresService';
 
 @Component({
   selector: 'app-moradores',
@@ -10,12 +11,17 @@ export class MoradoresComponent {
   filteredMoradores: any[] = []; // Lista filtrada de moradores
   searchTerm: string = ''; // Termo de busca
 
-  constructor() {
-    // Carregar moradores do localStorage
-    this.moradores = JSON.parse(localStorage.getItem('moradores') || '[]');
-    this.filteredMoradores = this.moradores; // Inicializa com todos os moradores
-  }
+  constructor(private moradoresService: MoradoresService) { }
 
+  ngOnInit(): void {
+    this.carregarMoradores();
+
+  }
+  carregarMoradores(): void {
+    this.moradoresService.buscarTodos().subscribe(data => {
+      this.moradores = data;
+    });
+  }
   novoMorador() {
     // Lógica para criar um novo morador (pode ser um redirecionamento ou abertura de um modal)
   }

@@ -1,14 +1,10 @@
 export interface Morador {
-  nome: string;
-  sobrenome: string;
-  rg: string;
-  cpf: string;
-  dataNascimento: string; // ou Date, dependendo de como a API espera
-  sexo: string;
-  telefone: string;
-  endereco: string;
-  email: string;
-  nacionalidade?: string; // Se for opcional
-  idade?: number; // Se for opcional
-id: number;
+  Nome: string;
+  CPF: string;
+  Telefone: string;
+  Endereco: string;
+  Datanascimento: number; // Deve ser um número
+  Sexo: string;
+  Idade: number; // Deve ser um número
+  Nacionalidade: string;
 }
