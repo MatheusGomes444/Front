@@ -12,14 +12,14 @@ import { Morador } from '../model/Morador.model';
 })
 export class CadastrarMoradoresComponent implements OnInit {
   form = new FormGroup({
-    Nome: new FormControl('', Validators.required),
-    CPF: new FormControl('', Validators.required),
-    Telefone: new FormControl('', Validators.required),
-    Endereco: new FormControl('', Validators.required),
-    Datanascimento: new FormControl('', Validators.required), // Corrigido
-    Sexo: new FormControl('', Validators.required), // Corrigido
-    Idade: new FormControl('', Validators.required), // Incluído no form
-    Nacionalidade: new FormControl('', Validators.required) // Incluído no form
+    Nome: new FormControl('', Validators.nullValidator),
+    CPF: new FormControl('', Validators.nullValidator),
+    Telefone: new FormControl('', Validators.nullValidator),
+    Endereco: new FormControl('', Validators.nullValidator),
+    Datanascimento: new FormControl('', Validators.nullValidator), // Corrigido
+    Sexo: new FormControl('', Validators.nullValidator), // Corrigido
+    Idade: new FormControl('', Validators.nullValidator), // Incluído no form
+    Nacionalidade: new FormControl('', Validators.nullValidator) // Incluído no form
   });
   
 
