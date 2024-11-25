@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MoradoresService } from 'services/MoradoresService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-moradores',
@@ -11,7 +12,7 @@ export class MoradoresComponent {
   filteredMoradores: any[] = []; // Lista filtrada de moradores
   searchTerm: string = ''; // Termo de busca
 
-  constructor(private moradoresService: MoradoresService) { }
+  constructor(private moradoresService: MoradoresService, private router:Router) { }
 
   ngOnInit(): void {
     this.carregarMoradores();
@@ -26,9 +27,8 @@ export class MoradoresComponent {
     // Lógica para criar um novo morador (pode ser um redirecionamento ou abertura de um modal)
   }
 
-  detalhesAlojamento(morador: any) {
-    // Lógica para exibir detalhes do alojamento do morador
-    console.log('Detalhes do morador:', morador);
+  detalhesMorador(id: number): void {
+    this.router.navigate(['/detalhesmoradores', id]);
   }
 
   localizacao(morador: any) {

@@ -16,10 +16,13 @@ const routes: Routes = [
   {path:'', component:HomeComponent},
   {path: 'alojamentos', component: AlojamentosComponent},
   {path: 'detalhesmoradores', component: DetalhesMoradoresComponent},
+  { path: 'detalhesmoradores/:id', component: DetalhesMoradoresComponent },
   {path: 'moradores', component: MoradoresComponent},
   { path: 'cadastrarmoradores', component: CadastrarMoradoresComponent },
   {path:'albergue', component:AlbergueComponent},
   {path:'detalhesalojamento', component:DetalhesAlojamentoComponent},
+  { path: '', component: MoradoresComponent },
+  { path: 'detalhesmoradores/:id', component: DetalhesMoradoresComponent }
 
 ];
 

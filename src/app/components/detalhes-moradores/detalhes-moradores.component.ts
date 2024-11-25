@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MoradoresService } from 'src/app/services/MoradoresService';
 
 @Component({
   selector: 'app-detalhes-moradores',
@@ -6,21 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detalhes-moradores.component.css']
 })
 export class DetalhesMoradoresComponent implements OnInit {
-  morador = {
-    nome: 'João Silva',
-    dataNascimento: '1990-01-01',
-    idade: 32,
-    cpf: '12345678909',
-    rg: '987654321',
-    status: 'Ativo',
-    nacionalidade: 'Brasileiro',
-    sexo: 'Masculino',
-    albergue: 'Albergue 1',
-    observacao: 'Observação do morador'
-  };
+  morador: any; // Dados do morador
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private moradoresService: MoradoresService
+  ) {}
 
   ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.moradoresService.getMoradorById(id).subscribe(data => {
+      this.morador = data;
+    });
   }
 }

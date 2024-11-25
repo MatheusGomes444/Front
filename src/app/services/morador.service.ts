@@ -17,6 +17,5 @@ export class MoradorService {
 
     return this.http.post(`${this.apiUrl}/moradores`, morador, options);
   }
-
   // Você pode adicionar outros métodos para obter, atualizar e deletar moradores...
 }
