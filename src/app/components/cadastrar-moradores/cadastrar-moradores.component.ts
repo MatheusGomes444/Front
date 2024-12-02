@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr'; // Importa o Toastr
-import { CadastrarMoradorService } from 'services/CadastrarMoradorService'; 
-import { Morador } from '../model/Morador.model'; 
+import { ToastrService } from 'ngx-toastr';
+import { CadastrarMoradorService } from 'services/CadastrarMoradorService';
+import { AlojamentoService } from 'src/app/services/Alojamentos.Service';
+import { Morador } from '../model/Morador.model';
 
 @Component({
   selector: 'app-cadastrar-moradores',
@@ -11,45 +12,50 @@ import { Morador } from '../model/Morador.model';
   styleUrls: ['./cadastrar-moradores.component.css']
 })
 export class CadastrarMoradoresComponent implements OnInit {
-  form = new FormGroup({
-    Nome: new FormControl('', Validators.nullValidator),
-    CPF: new FormControl('', Validators.nullValidator),
-    Telefone: new FormControl('', Validators.nullValidator),
-    Endereco: new FormControl('', Validators.nullValidator),
-    Datanascimento: new FormControl('', Validators.nullValidator), // Corrigido
-    Sexo: new FormControl('', Validators.nullValidator), // Corrigido
-    Idade: new FormControl('', Validators.nullValidator), // Incluído no form
-    Nacionalidade: new FormControl('', Validators.nullValidator) // Incluído no form
-  });
-  
-
+  form: FormGroup;
+  alojamentos: any[] = [];
 
   constructor(
     private router: Router,
-    private toastr: ToastrService, // Injeta o serviço Toastr
-    private cadastrarMoradorService: CadastrarMoradorService
-  ) {}
+    private toastr: ToastrService,
+    private cadastrarMoradorService: CadastrarMoradorService,
+    private alojamentoService: AlojamentoService
+  ) {
+    this.form = new FormGroup({
+      Nome: new FormControl('', Validators.required),
+      CPF: new FormControl('', Validators.nullValidator),
+      RG: new FormControl('', Validators.nullValidator),
+      Telefone: new FormControl('', Validators.nullValidator),
+      Endereco: new FormControl('', Validators.nullValidator),
+      
+      Sexo: new FormControl('', Validators.nullValidator),
+      Idade: new FormControl('', Validators.nullValidator),
+      Nacionalidade: new FormControl('', Validators.nullValidator),
+      Observacoes: new FormControl('', Validators.nullValidator),
+      AlojamentoId: new FormControl('', Validators.required),
+    });
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.carregarAlojamentos();
+  }
+
+  carregarAlojamentos(): void {
+    this.alojamentoService.getAlojamentos().subscribe({
+      next: (data) => {
+        this.alojamentos = data;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar alojamentos:', err);
+        this.toastr.error('Erro ao carregar alojamentos. Tente novamente.', 'Erro');
+      }
+    });
+  }
 
   cadastrarMorador(): void {
     if (this.form.valid) {
-      const formValues = this.form.value;
-  
-      // Criar o objeto novoMorador com os valores tratados
-      const novoMorador: Morador = {
-        Nome: formValues.Nome ?? '', // Define valor padrão vazio se for null ou undefined
-        CPF: formValues.CPF ?? '',
-        Telefone: formValues.Telefone ?? '',
-        Endereco: formValues.Endereco ?? '',
-        Datanascimento: formValues.Datanascimento 
-          ? parseInt(formValues.Datanascimento.replace(/-/g, '')) 
-          : 0, // Converte para número ou usa 0 como padrão
-        Sexo: formValues.Sexo ?? '',
-        Idade: formValues.Idade ? parseInt(formValues.Idade) : 0, // Converte ou usa 0
-        Nacionalidade: formValues.Nacionalidade ?? ''
-      };
-  
+      const novoMorador: Morador = { ...this.form.value };
+
       this.cadastrarMoradorService.cadastrar(novoMorador).subscribe({
         next: () => {
           this.toastr.success('Morador cadastrado com sucesso!', 'Sucesso');
@@ -64,7 +70,6 @@ export class CadastrarMoradoresComponent implements OnInit {
       this.toastr.warning('Por favor, preencha todos os campos obrigatórios.', 'Atenção');
     }
   }
-  
 
   voltar(): void {
     this.form.reset();

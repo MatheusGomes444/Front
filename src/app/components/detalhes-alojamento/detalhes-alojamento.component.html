@@ -1,65 +1,65 @@
 <div class="container">
   <div class="left-section">
     <h1>{{ nomeAlojamento }}</h1>
-    <img [src]="imagemAlojamento" alt="Imagem do Alojamento" class="alojamento-image" />
   </div>
-  
+
   <div class="right-section">
-    <h2>Escolhas</h2>
-    <form>
-      <div class="form-group">
-        <label for="pet">Pet:</label>
-        <select id="pet">
-          <option value="cao">Cão</option>
-          <option value="gato">Gato</option>
-          <option value="outro">Outro</option>
-        </select>
-      </div>
+    <h2>Informações do Alojamento</h2>
+    <div>
+      <p><strong>Pet:</strong> {{ pet }}</p>
+      <p><strong>Sexo:</strong> {{ sexo }}</p>
+      <p><strong>Pertences:</strong> {{ pertences }}</p>
+      <p><strong>Refeições:</strong> {{ refeicoes }}</p>
+      <p><strong>Equipe:</strong> {{ equipe }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Telefone:</strong> {{ telefone }}</p>
+    </div>
 
-      <div class="form-group">
-        <label for="sexo">Sexo:</label>
-        <select id="sexo">
-          <option value="macho">Macho</option>
-          <option value="femea">Fêmea</option>
-        </select>
-      </div>
+    <div class="button-container">
+      <button (click)="editarInformacoes()">Editar Informações</button>
+      <button (click)="listarMoradores()">Listar Moradores</button>
+    </div>
 
-      <div class="form-group">
-        <label for="sobrenome">Área de lazer:</label>
-        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px;">
-      </div>
-      <div class="form-group">
-        <label for="sobrenome">Pertences:</label>
-        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px;">
-      </div>
+    <!-- Campos de edição que aparecem somente após clicar no botão "Editar Informações" -->
+    <div *ngIf="editando">
+      <form>
+        <div class="form-group">
+          <label for="pet">Pet:</label>
+          <input type="text" id="pet" [(ngModel)]="pet" name="pet" class="form-control">
+        </div>
 
-      <div class="form-group">
-        <label for="Refeiçöes">Refeiçöes:</label>
-        <select id="Refeiçöes">
-          <option value="manha">7:00 as 10:00</option>
-          <option value="tarde">12:00 as 17:00</option>
-          <option value="noite">19:00 as 22:00</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label for="sexo">Sexo:</label>
+          <input type="text" id="sexo" [(ngModel)]="sexo" name="sexo" class="form-control">
+        </div>
 
-      <div class="form-group">
-        <label for="horario">Horário:</label>
-        <select id="horario">
-          <option value="manha">Manhã</option>
-          <option value="tarde">Tarde</option>
-          <option value="noite">Noite</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label for="pertences">Pertences:</label>
+          <input type="text" id="pertences" [(ngModel)]="pertences" name="pertences" class="form-control">
+        </div>
 
-      <div class="form-group">
-        <label for="sobrenome">Acolhimento:</label>
-        <input type="text" formControlName="Pertences" id="sobrenome" class="form-control" style="width: 150px;">
-      </div>
+        <div class="form-group">
+          <label for="refeicoes">Refeições:</label>
+          <input type="text" id="refeicoes" [(ngModel)]="refeicoes" name="refeicoes" class="form-control">
+        </div>
 
-      <div class="form-group">
-        <label for="programas">Programas:</label>
-        <input type="checkbox" id="programas" />
-      </div>
-    </form>
+        <div class="form-group">
+          <label for="equipe">Equipe:</label>
+          <input type="text" id="equipe" [(ngModel)]="equipe" name="equipe" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input type="text" id="telefone" [(ngModel)]="telefone" name="telefone" class="form-control">
+        </div>
+      </form>
+        
+      <button (click)="atualizarInformacoes()">Atualizar Informações</button>
+    </div>
   </div>
 </div>

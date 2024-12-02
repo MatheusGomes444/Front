@@ -1,10 +1,14 @@
 export interface Morador {
+  id: number;
   Nome: string;
   CPF: string;
-  Telefone: string;
+  RG: string;
+  Telefone: number;
   Endereco: string;
-  Datanascimento: number; // Deve ser um número
+
   Sexo: string;
-  Idade: number; // Deve ser um número
+  Idade: number;
   Nacionalidade: string;
+  Observacoes: string;
+  AlojamentoId: number; // Campo obrigatório no back-end
 }

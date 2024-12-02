@@ -17,5 +17,14 @@ export class MoradorService {
 
     return this.http.post(`${this.apiUrl}/moradores`, morador, options);
   }
+  getMoradorById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/MoradorbyId${id}`);
+  }
+  getMoradores(alojamentoId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${alojamentoId}/moradores`);
+  }
+  atualizarMorador(id: number, morador: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, morador);
+  }
   // Você pode adicionar outros métodos para obter, atualizar e deletar moradores...
 }

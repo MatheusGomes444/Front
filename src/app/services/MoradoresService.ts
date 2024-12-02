@@ -1,34 +1,36 @@
-// moradores.service.ts
 import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MoradoresComponent } from '../components/moradores/moradores.component'; // Certifique-se de que você tem um modelo para Morador
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Morador } from '../components/model/Morador.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MoradoresService {
   private URL: string = 'http://localhost:5134/moradores';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  buscarTodos(): Observable<MoradoresService[]> {
-    return this.http.get<MoradoresService[]>(this.URL).pipe(
-      catchError(erro => {
-        console.error('Erro ao buscar moradores', erro);
-        return [];
+  buscarTodos(): Observable<Morador[]> {
+    return this.http.get<Morador[]>(this.URL).pipe(
+      catchError(error => {
+        console.error('Erro ao buscar moradores:', error);
+        return throwError(() => error);
       })
     );
   }
-  // Busca morador por ID
-  getMoradorById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.URL}/MoradorbyId${id}`);
-}
-cadastrarMorador(morador: any): Observable<any> {
-  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  const options = { headers: headers };
 
-  return this.http.post(`${this.URL}/moradores`, morador, options);
-}
+  getMoradorById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.URL}/MoradorbyId/${id}`);
+  }
+
+  atualizarMorador(id: number, morador: Morador): Observable<Morador> {
+    return this.http.put<Morador>(`${this.URL}/${id}`, morador).pipe(
+      catchError(error => {
+        console.error('Erro ao atualizar morador:', error);
+        return throwError(() => error);
+      })
+    );
+  }
 }

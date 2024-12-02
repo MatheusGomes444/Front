@@ -13,7 +13,7 @@
   <div *ngFor="let morador of moradores" class="morador-item">
     
     <div class="morador-info">
-      {{ morador.nome }}  {{ morador.albergue }}  {{ morador.cpf }}
+      {{ morador.nome }}  {{ morador.cpf }}  {{ morador.id }}
     </div>
     <div class="morador-actions">
 
@@ -24,7 +24,7 @@
   Detalhes
 </button>
 
-      <button (click)="localizacao(morador)" routerLink="Localização" class="btn-localizacao">Localização</button>
+
     </div>
   </div>
 </div>

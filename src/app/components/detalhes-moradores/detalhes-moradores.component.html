@@ -1,38 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <h1>Detalhes Morador</h1>
-      <div class="moradorimg">
-        <img src="morador-image.jpg" alt="Morador Image">
-      </div>
-      <div style="width: 150px;">
-        <ul>
-          <li>Nome Completo: {{ morador?.nome }}</li>
-          <div style="display: flex; justify-content: space-around; width: 220px;">
-            <div><li>Data de Nascimento: {{ morador?.dataNascimento }}</li></div>
-            <div><li>Idade: {{ morador?.idade }}</li></div>
-          </div>
-          <li>CPF: {{ morador?.cpf }}</li>
-          <li>RG: {{ morador?.rg }}</li>
+    <!-- Card Principal para Exibir Dados do Morador -->
+    <div class="col-md-12">
+      <div class="card" style="border-radius: 10px; padding: 2rem;">
+        <h1>Detalhes do Morador</h1>
+
+        <!-- Informações Básicas -->
+        <ul class="details-list">
+          <li><strong>Nome:</strong> {{ morador?.nome }}</li>
+           <li><strong>Idade:</strong> {{ morador?.idade }}</li>
+          <li><strong>CPF:</strong> {{ morador?.cpf }}</li>
+          <li><strong>RG:</strong> {{ morador?.rg }}</li>
+          <li><strong>Endereco:</strong> {{ morador?.endereco }}</li>
         </ul>
-      </div>
-    </div>
-    <div class="Informacao">
-      <div class="txt">
-        <h2>Status</h2>
-        <p>Ativo/Inativo: {{ morador?.status }}</p>
-        
-        <label for="nacionalidade">Nacionalidade:</label>
-        <input type="text" formControlName="nacionalidade" id="nacionalidade" class="form-control" style="width: 250px;">
-      
-        <label for="loclidade">Localidade:</label>
-        <input type="text" formControlName="localidade" id="localidade" class="form-control" style="width: 250px;">
 
-        <label for="sexo">Sexo:</label>
-        <input type="text" formControlName="sexo" id="sexo" class="form-control" style="width: 250px;">
+        <!-- Enfatizar Status -->
+        <div class="status-section">
+          <h3>Status:</h3>
+          <p class="status {{ morador?.ativo ? 'active' : 'inactive' }}">
+            {{ morador?.ativo ? 'Ativo' : 'Inativo' }}
+          </p>
+        </div>
 
-        <label for="observacao">Observação</label>
-        <input type="text" formControlName="observacao" id="observacao" class="form-control" style="width: 250px;">
+        <!-- Outras Informações -->
+        <ul class="details-list">
+          <li><strong>sexo:</strong> {{ morador?.nacionalidade }}</li>
+       
+          <li><strong>Observações:</strong> {{ morador?.observacoes }}</li>
+        </ul>
       </div>
     </div>
   </div>

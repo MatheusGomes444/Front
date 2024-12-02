@@ -1,4 +1,5 @@
 <h1>Cadastrar Moradores</h1>
+
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="cadastrarMorador()">
     <!-- Sessão de cima -->
@@ -10,7 +11,6 @@
           formControlName="Nome"
           id="Nome"
           class="form-control"
-          style="width: 250px;"
         />
       </div>
       <div class="form-group">
@@ -20,7 +20,29 @@
           formControlName="CPF"
           id="CPF"
           class="form-control"
-          style="width: 250px;"
+        />
+      </div>
+      <div class="form-group">
+        <label for="RG">RG:</label>
+        <input
+          type="text"
+          formControlName="RG"
+          id="RG"
+          class="form-control"
+        />
+      </div>
+     
+    </div>
+
+    <!-- Sessão do meio -->
+    <div class="segunda">
+      <div class="form-group">
+        <label for="Endereco">Endereço:</label>
+        <input
+          type="text"
+          formControlName="Endereco"
+          id="Endereco"
+          class="form-control"
         />
       </div>
       <div class="form-group">
@@ -30,31 +52,6 @@
           formControlName="Telefone"
           id="Telefone"
           class="form-control"
-          style="width: 250px;"
-        />
-      </div>
-    </div>
-
-    <!-- Sessão meio -->
-    <div class="segunda">
-      <div class="form-group">
-        <label for="Endereco">Endereço:</label>
-        <input
-          type="text"
-          formControlName="Endereco"
-          id="Endereco"
-          class="form-control"
-          style="width: 250px;"
-        />
-      </div>
-      <div class="form-group">
-        <label for="Datanascimento">Data de Nascimento:</label>
-        <input
-          type="date"
-          formControlName="Datanascimento"
-          id="Datanascimento"
-          class="form-control"
-          style="width: 250px;"
         />
       </div>
       <div class="form-group">
@@ -64,12 +61,11 @@
           formControlName="Sexo"
           id="Sexo"
           class="form-control"
-          style="width: 250px;"
         />
       </div>
     </div>
 
-    <!-- Sessão Final -->
+    <!-- Sessão final -->
     <div class="terceira">
       <div class="form-group">
         <label for="Idade">Idade:</label>
@@ -78,7 +74,6 @@
           formControlName="Idade"
           id="Idade"
           class="form-control"
-          style="width: 250px;"
         />
       </div>
       <div class="form-group">
@@ -88,17 +83,34 @@
           formControlName="Nacionalidade"
           id="Nacionalidade"
           class="form-control"
-          style="width: 250px;"
+        />
+      </div>
+      <div class="form-group">
+        <label for="Observacoes">Observações:</label>
+        <input
+          type="text"
+          formControlName="Observacoes"
+          id="Observacoes"
+          class="form-control"
         />
       </div>
     </div>
 
-    <!-- Div botões -->
+    <!-- Campo Alojamento -->
+    <div class="form-group">
+      <label for="AlojamentoId">Alojamento:</label>
+      <select formControlName="AlojamentoId" id="AlojamentoId" class="form-control">
+        <option *ngFor="let alojamento of alojamentos" [value]="alojamento.id">
+          {{ alojamento.nome }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Botões -->
     <div class="btnbtn">
       <button
         type="submit"
         class="btn btn-primary"
-        style="width: 150px;"
       >
         Salvar
       </button>
@@ -106,7 +118,6 @@
         type="button"
         class="btn btn-primary"
         (click)="voltar()"
-        style="right: 50px; width: 150px;"
       >
         Voltar
       </button>

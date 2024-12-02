@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MoradoresService } from 'src/app/services/MoradoresService';
+import { MoradoresService } from 'src/app/services/MoradoresService'; 
 
 @Component({
   selector: 'app-detalhes-moradores',

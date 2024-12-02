@@ -26,6 +26,7 @@ import { DetalhesMoradoresComponent } from './components/detalhes-moradores/deta
 import { AlbergueComponent } from './components/albergue/albergue.component';
 import { DetalhesAlojamentoComponent } from './components/detalhes-alojamento/detalhes-alojamento.component';
 import { MoradorService } from './services/morador.service';
+import { ListarMoradoresComponent } from './listar-moradores/listar-moradores.component';
 
 
 
@@ -46,6 +47,7 @@ registerLocaleData(localePt);
     DetalhesMoradoresComponent,
     DetalhesAlojamentoComponent,
     AlbergueComponent,
+    ListarMoradoresComponent,
 
 
 
