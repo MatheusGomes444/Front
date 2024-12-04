@@ -5,7 +5,7 @@ export interface Morador {
   RG: string;
   Telefone: number;
   Endereco: string;
-
+  alojamentoNome: string;
   Sexo: string;
   Idade: number;
   Nacionalidade: string;

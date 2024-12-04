@@ -1,33 +1,55 @@
 <div class="container">
   <div class="row">
-    <!-- Card Principal para Exibir Dados do Morador -->
     <div class="col-md-12">
       <div class="card" style="border-radius: 10px; padding: 2rem;">
         <h1>Detalhes do Morador</h1>
 
         <!-- Informações Básicas -->
-        <ul class="details-list">
+        <ul class="details-list" *ngIf="!editando">
           <li><strong>Nome:</strong> {{ morador?.nome }}</li>
-           <li><strong>Idade:</strong> {{ morador?.idade }}</li>
+          <li><strong>Idade:</strong> {{ morador?.idade }}</li>
           <li><strong>CPF:</strong> {{ morador?.cpf }}</li>
           <li><strong>RG:</strong> {{ morador?.rg }}</li>
-          <li><strong>Endereco:</strong> {{ morador?.endereco }}</li>
-        </ul>
-
-        <!-- Enfatizar Status -->
-        <div class="status-section">
-          <h3>Status:</h3>
-          <p class="status {{ morador?.ativo ? 'active' : 'inactive' }}">
-            {{ morador?.ativo ? 'Ativo' : 'Inativo' }}
-          </p>
-        </div>
-
-        <!-- Outras Informações -->
-        <ul class="details-list">
-          <li><strong>sexo:</strong> {{ morador?.nacionalidade }}</li>
-       
+          <li><strong>Endereço:</strong> {{ morador?.endereco }}</li>
+          <li><strong>Status:</strong> {{ morador?.ativo ? 'Ativo' : 'Inativo' }}</li>
+          <li><strong>Sexo:</strong> {{ morador?.sexo }}</li>
           <li><strong>Observações:</strong> {{ morador?.observacoes }}</li>
+          <li><strong>Alojamento:</strong> {{ morador?.alojamentoNome || 'Não atribuído' }}</li> <!-- Nome do alojamento -->
         </ul>
+
+        <!-- Formulário de Edição -->
+        <form *ngIf="editando" (ngSubmit)="atualizarMorador()">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" [(ngModel)]="morador.nome" name="nome" class="form-control" />
+          </div>
+          <!-- Outros campos do formulário -->
+          <div class="form-group">
+            <label for="novoAlojamento">Mover para outro alojamento</label>
+            <select
+              id="novoAlojamento"
+              [(ngModel)]="novoAlojamentoId"
+              name="novoAlojamento"
+              class="form-control"
+            >
+              <option [value]="null" disabled selected>Selecione um alojamento</option>
+              <option *ngFor="let alojamento of alojamentos" [value]="alojamento.id">
+                {{ alojamento.nome }}
+              </option>
+            </select>
+          </div>
+
+          <div *ngIf="novoAlojamentoId && editando">
+            <button class="btn btn-warning mt-2" type="button" (click)="confirmarMudancaAlojamento()">
+              Confirmar mudança de alojamento
+            </button>
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+
+        <button class="btn btn-secondary mt-3" (click)="alternarModoEdicao()">
+          {{ editando ? 'Cancelar' : 'Editar' }}
+        </button>
       </div>
     </div>
   </div>
